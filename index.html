@@ -3,74 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Terminal Linktree</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Castlemore Road Strategies | Terminal</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
+    <style>
+        /* Custom Scrollbar for Webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fb923c; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f97316; 
+        }
+        
+        /* Blinking Cursor Animation */
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
-<body class="bg-black text-orange-400 font-mono">
-    <custom-navbar></custom-navbar>
+<body class="bg-black text-orange-400 font-mono flex flex-col min-h-screen">
 
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Navigation -->
+    <nav class="border-b border-gray-800 bg-gray-900 px-4 py-3">
+        <div class="container mx-auto max-w-4xl flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="terminal" class="w-5 h-5"></i>
+                <span class="font-bold tracking-wider">CRS_TERM_V1.0</span>
+            </div>
+            <div class="text-xs text-gray-500 hidden md:block" id="clock">
+                LOADING TIME...
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+        
         <!-- Terminal Header -->
-        <div class="border border-orange-400 p-6 mb-8 text-center">
-            <h1 class="text-2xl md:text-3xl uppercase tracking-wider mb-2">CASTLEMORE ROAD STRATEGIES</h1>
-            <p class="text-gray-300 text-sm">Link Tree Command Line Interface</p>
-</div>
+        <div class="border border-orange-400 p-6 mb-8 text-center relative">
+            <div class="absolute top-0 left-0 bg-black px-2 -mt-3 ml-4 text-xs text-gray-500">IDENT: GUEST</div>
+            <h1 class="text-2xl md:text-3xl uppercase tracking-wider mb-2 font-bold">Castlemore Road Strategies</h1>
+            <p class="text-gray-400 text-sm">Link Tree Command Line Interface</p>
+        </div>
 
         <!-- Market Ticker -->
-        <div class="flex justify-between border-b border-gray-700 py-2 mb-6 text-gray-300 text-xs md:text-sm overflow-x-auto">
-            <div class="whitespace-nowrap px-2">SPX <span class="text-green-500">+0.45%</span></div>
-            <div class="whitespace-nowrap px-2">NDX <span class="text-red-500">-0.12%</span></div>
-            <div class="whitespace-nowrap px-2">RTY <span class="text-red-500">-0.85%</span></div>
-<div class="whitespace-nowrap px-2">UST10Y <span class="text-green-500">4.15%</span></div>
-            <div class="whitespace-nowrap px-2">GOLD <span class="text-green-500">+0.32%</span></div>
-            <div class="whitespace-nowrap px-2">BTC <span class="text-red-500">-2.45%</span></div>
+        <div class="w-full border-y border-gray-800 bg-gray-900/50 py-3 mb-8 overflow-hidden">
+            <div class="flex justify-between items-center text-xs md:text-sm overflow-x-auto no-scrollbar space-x-6 px-4">
+                <div class="whitespace-nowrap font-bold">SPX <span class="text-green-500 ml-1">+0.45%</span></div>
+                <div class="whitespace-nowrap font-bold">NDX <span class="text-red-500 ml-1">-0.12%</span></div>
+                <div class="whitespace-nowrap font-bold">RTY <span class="text-red-500 ml-1">-0.85%</span></div>
+                <div class="whitespace-nowrap font-bold">UST10Y <span class="text-green-500 ml-1">4.15%</span></div>
+                <div class="whitespace-nowrap font-bold">GOLD <span class="text-green-500 ml-1">+0.32%</span></div>
+                <div class="whitespace-nowrap font-bold">BTC <span class="text-red-500 ml-1">-2.45%</span></div>
+            </div>
         </div>
 
         <!-- Links Section -->
-        <div class="space-y-3 mb-8">
-            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
-                <span class="font-bold w-24">SUBSTACK</span>
-                <span class="flex-grow text-gray-300 hover:text-black">Read the latest Research Notes</span>
-                <span class="font-bold">&gt;&gt;</span>
+        <div class="space-y-4 mb-8">
+            <!-- Link 1 -->
+            <a href="https://castlemore.substack.com" class="group flex flex-col md:flex-row md:items-center bg-gray-900 border border-gray-800 p-4 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-all duration-200">
+                <div class="flex items-center w-32 mb-2 md:mb-0">
+                    <i data-feather="file-text" class="w-4 h-4 mr-2"></i>
+                    <span class="font-bold">SUBSTACK</span>
+                </div>
+                <span class="flex-grow text-gray-400 text-sm md:text-base group-hover:text-black transition-colors">Read the latest Research Notes</span>
+                <span class="font-bold hidden md:block">&gt;&gt;</span>
             </a>
 
-            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
-                <span class="font-bold w-24">DASHBOARD</span>
-                <span class="flex-grow text-gray-300 hover:text-black">View Proprietary Model</span>
-<span class="font-bold">&gt;&gt;</span>
+            <!-- Link 2 -->
+            <a href="#" class="group flex flex-col md:flex-row md:items-center bg-gray-900 border border-gray-800 p-4 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-all duration-200">
+                <div class="flex items-center w-32 mb-2 md:mb-0">
+                    <i data-feather="bar-chart-2" class="w-4 h-4 mr-2"></i>
+                    <span class="font-bold">DASHBOARD</span>
+                </div>
+                <span class="flex-grow text-gray-400 text-sm md:text-base group-hover:text-black transition-colors">View Proprietary Model</span>
+                <span class="font-bold hidden md:block">&gt;&gt;</span>
             </a>
-            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
-                <span class="font-bold w-24">DEMO</span>
-                <span class="flex-grow text-gray-300 hover:text-black">Public Demonstration of Dashboard Here</span>
-                <span class="font-bold">&gt;&gt;</span>
+
+            <!-- Link 3 -->
+            <a href="#" class="group flex flex-col md:flex-row md:items-center bg-gray-900 border border-gray-800 p-4 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-all duration-200">
+                <div class="flex items-center w-32 mb-2 md:mb-0">
+                    <i data-feather="monitor" class="w-4 h-4 mr-2"></i>
+                    <span class="font-bold">DEMO</span>
+                </div>
+                <span class="flex-grow text-gray-400 text-sm md:text-base group-hover:text-black transition-colors">Public Demonstration of Dashboard Here</span>
+                <span class="font-bold hidden md:block">&gt;&gt;</span>
             </a>
-            <a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
-                <span class="font-bold w-24">REAL ESTATE</span>
-                <span class="flex-grow text-gray-300 hover:text-black">Tenant Screening & Rent Reporting</span>
-                <span class="font-bold">&gt;&gt;</span>
+
+            <!-- Link 4 -->
+            <a href="#" class="group flex flex-col md:flex-row md:items-center bg-gray-900 border border-gray-800 p-4 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-all duration-200">
+                <div class="flex items-center w-32 mb-2 md:mb-0">
+                    <i data-feather="home" class="w-4 h-4 mr-2"></i>
+                    <span class="font-bold">REAL ESTATE</span>
+                </div>
+                <span class="flex-grow text-gray-400 text-sm md:text-base group-hover:text-black transition-colors">Tenant Screening & Rent Reporting</span>
+                <span class="font-bold hidden md:block">&gt;&gt;</span>
             </a>
-<a href="#" class="flex justify-between items-center bg-gray-900 border border-gray-700 text-orange-400 p-4 hover:bg-orange-400 hover:text-black transition-colors">
-<span class="font-bold w-24">CONTACT</span>
-                <span class="flex-grow text-gray-300 hover:text-black">Institutional Inquiries (Responded Within 48 Hours)</span>
-<span class="font-bold">&gt;&gt;</span>
+
+            <!-- Link 5 -->
+            <a href="#" class="group flex flex-col md:flex-row md:items-center bg-gray-900 border border-gray-800 p-4 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-all duration-200">
+                <div class="flex items-center w-32 mb-2 md:mb-0">
+                    <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                    <span class="font-bold">CONTACT</span>
+                </div>
+                <span class="flex-grow text-gray-400 text-sm md:text-base group-hover:text-black transition-colors">Institutional Inquiries (48hr Response)</span>
+                <span class="font-bold hidden md:block">&gt;&gt;</span>
             </a>
         </div>
+
         <!-- Terminal Command Line -->
-        <div class="bg-gray-800 text-white p-3 flex items-center mb-8">
-            <span class="text-orange-400 font-bold mr-3">COMMAND:</span>
-            <input type="text" id="commandInput" class="bg-transparent border-none outline-none flex-grow text-white" 
-                   placeholder="Type 'help' for options" autocomplete="off">
-            <span class="inline-block w-2 h-4 bg-orange-400 ml-1 animate-pulse"></span>
+        <div class="bg-gray-800 p-3 flex items-center border-l-4 border-orange-500 shadow-lg">
+            <span class="text-orange-400 font-bold mr-3 whitespace-nowrap">COMMAND:</span>
+            <div class="flex-grow flex items-center">
+                <input type="text" id="commandInput" class="bg-transparent border-none outline-none w-full text-white font-mono placeholder-gray-500 uppercase" 
+                       placeholder="TYPE 'HELP' FOR OPTIONS..." autocomplete="off">
+                <span class="w-2 h-4 bg-orange-400 ml-1 cursor-blink"></span>
+            </div>
         </div>
-</div>
 
-    <custom-footer></custom-footer>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-6 text-center text-xs text-gray-600 bg-gray-900">
+        <div class="container mx-auto">
+            <p class="mb-2">:: CASTLEMORE ROAD STRATEGIES © 2025 :: BRAMPTON, ON ::</p>
+            <p>INSTITUTIONAL USE ONLY // DATA DELAYED 15 MIN</p>
+        </div>
+    </footer>
+
     <script>
+        // Initialize Feather Icons
         feather.replace();
+
+        // Clock Functionality
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour12: false, timeZoneName: 'short' });
+            const dateString = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            document.getElementById('clock').innerText = `${dateString.toUpperCase()} // ${timeString}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Simple Command Line Interaction
+        const input = document.getElementById('commandInput');
+        input.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const val = this.value.toUpperCase().trim();
+                if(val === 'HELP') {
+                    alert('AVAILABLE COMMANDS: SUBSTACK, DASHBOARD, CONTACT');
+                } else if (val === 'SUBSTACK') {
+                    window.location.href = 'https://castlemore.substack.com';
+                } else if (val === 'CONTACT') {
+                    window.location.href = 'mailto:contact@castlemore.com';
+                } else {
+                    alert('ERROR: COMMAND NOT RECOGNIZED');
+                }
+                this.value = '';
+            }
+        });
+        
+        // Auto-focus command line on load
+        window.onload = function() {
+            input.focus();
+        };
+    </script>
 </body>
 </html>
